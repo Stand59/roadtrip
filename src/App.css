@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+
+.navbar {
+    background-color: #EBEAF1;
+}
+
+p{
+    color:#EBEAF1
+}
+
+#center {
+    align-items: center;
+  justify-content: center;
+  text-align: center;
+}

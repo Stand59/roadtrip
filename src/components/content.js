@@ -25,6 +25,7 @@ import Home from './home';
 import Stay from './stay';
 import City from './city';
 import Roadtrip from './roadtrip';
+import About from './about';
 
 
   export default function Content() {
@@ -44,6 +45,8 @@ import Roadtrip from './roadtrip';
     const [data11, setData11] = useState('hello');
     const [isOpen, setIsOpen] = React.useState(false);
     const [destination, setDestination ] = useState('provo');
+    const [usState, setUSState] = useState('utah');
+    const [trip, setTrip] = useState('provoToSanDiego');
 
         return (
             <>
@@ -70,10 +73,10 @@ import Roadtrip from './roadtrip';
                                         <NavLink href="city">Explore Your Destination</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="author">About</NavLink>
+                                        <NavLink href="about">About</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="author">Contact Us</NavLink>
+                                        <NavLink href="about">Contact Us</NavLink>
                                     </NavItem>
                                 </Nav>
                             </Collapse>
@@ -85,9 +88,11 @@ import Roadtrip from './roadtrip';
             <div>
             <Routes>
                 <Route  path="/" element={<Home/>}/>
-                <Route path="stayHome" element={<Stay/>}/>
+                <Route path="stayHome" element={<Stay usState={usState} setUSState={setUSState}/>}/>
                 <Route path="city" element={<City destination={destination} setDestination={setDestination} />}/>
-                <Route path="roadtrip" element={<Roadtrip/>}/>
+                <Route path="/city/:cityName" element={<City destination={destination} setDestination={setDestination} />}/>
+                <Route path="roadtrip" element={<Roadtrip trip={trip} setTrip={setTrip} />}/>
+                <Route path="about" element={<About/>}/>
                 {/* <Route path='book' element={<Stay setDatas={setData11} data11={data11} shortName45={shortName} shortName22={shortName2} setName2={setName2}/>}/>
                 <Route path="author" element={<Town/>}/> */}
             </Routes>
